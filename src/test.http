@@ -1,9 +1,7 @@
 POST http://localhost:5000/api/user/signup
-
 Content-Type: application/json
-Accept: application/json
 
 {
-    "email": "teona@gmail.com",
-    "password": "blah"
+    "email": "teon@gma.com",
+    "password": "gdfg"
 }

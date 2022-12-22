@@ -5,12 +5,6 @@ import cors from "cors";
 import router from "./routes/user.js";
 import bodyParser from "body-parser";
 
-const app = express();
-app.use(cors());
-app.use("/api/user", router);
-
-app.use(bodyParser.json());
-
 dotenv.config();
 const connection = () => {
   try {
@@ -22,5 +16,9 @@ const connection = () => {
   }
 };
 connection();
+const app = express();
+app.use(bodyParser.json());
+app.use(cors());
+app.use("/api/user", router);
 
 app.listen(5000);
