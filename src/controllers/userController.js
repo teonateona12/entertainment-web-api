@@ -10,7 +10,7 @@ export const loginUser = async (req, res) => {
       return res.status(400).json({ error: "Please enter all required fiels" });
     }
     const existingUser = await User.findOne({ email });
-    
+
     if (!existingUser) {
       return res.status(400).json({ error: "Wrong email or wassword" });
     }
@@ -76,10 +76,3 @@ export const signupUser = async (req, res) => {
     res.status(500).send();
   }
 };
-
-export const logoutUser = async(req,res)=>{
-  res.cookie("token", "",{
-    httpOnly:true,
-    expires: new Date(0)
-  }).send()
-}
