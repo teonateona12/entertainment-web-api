@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import router from "./routes/user.js";
 import bodyParser from "body-parser";
+import swaggerMiddleware from "./middlewares/swagger-middleware.js";
 
 dotenv.config();
 const connection = () => {
@@ -19,6 +20,7 @@ connection();
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
-app.use("/api/user", router);
+app.use("/api", router);
+app.use("/", ...swaggerMiddleware);
 
 app.listen(5000);
