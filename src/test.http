@@ -1,7 +1,0 @@
-POST http://localhost:5000/api/user/signup
-Content-Type: application/json
-
-{
-    "email": "teon@gma.com",
-    "password": "gdfg"
-}

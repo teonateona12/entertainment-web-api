@@ -5,15 +5,15 @@ info:
   version: 0.1.9
 
 servers:
-  - url: https://folksoul-api-nikanoza-production.up.railway.app/api
+  - url: https://entertainment-web.onrender.com/api
     description: production server
   - url: http://localhost:5000/api
     description: local server
 paths:
-  /user/films:
+  /films:
     post:
       tags:
-        - film
+        - films
       requestBody:
         description: add film
         required: true
@@ -40,3 +40,70 @@ paths:
       responses:
         "200":
           description: film add
+  /user/signup:
+    post:
+      tags:
+        - user
+      requestBody:
+        description: add user
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                avatar:
+                  type: string
+                  format: binary
+                email:
+                  type: string
+                password:
+                  type: string
+      responses:
+        "200":
+          description: user add
+  /user/login:
+    post:
+      tags:
+        - user
+      requestBody:
+        description: user authorization
+        required: true
+        content:
+          application/json:
+            schema:
+              type: "object"
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+      responses:
+        "200":
+          description: login successfully
+  /film:
+    get:
+      tags:
+        - Film
+      responses:
+        "200":
+          description: Successfully fetched
+          content:
+            application/json:
+              schema:
+                type: array
+                 avatar:
+                  type: string
+                  format: binary
+                title:
+                  type: string
+                year:
+                  type: number
+                category:
+                  type: string
+                rating:
+                  type: string
+                isBookmarked:
+                  type: boolean
+                isTrending:
+                  type: boolean

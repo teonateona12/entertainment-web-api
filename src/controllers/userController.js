@@ -41,6 +41,9 @@ export const loginUser = async (req, res) => {
 
 export const signupUser = async (req, res) => {
   const { email, password } = req.body;
+  const { file } = req;
+  console.log(file);
+  console.log(email, password);
   try {
     if ((!email, !password)) {
       return res.status(400).json({ error: "Please enter all required fiels" });
@@ -58,6 +61,7 @@ export const signupUser = async (req, res) => {
     const newUser = new User({
       email,
       password: hash,
+      avatar: file.originalname,
     });
 
     const saveUser = await newUser.save();

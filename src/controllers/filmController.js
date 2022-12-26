@@ -16,3 +16,8 @@ export const filmFunction = async (req, res) => {
 
   return res.status(200).json("Film added");
 };
+
+export const getFilm = async (req, res) => {
+  const allFilm = await Film.find();
+  res.status(200).json(allFilm);
+};
