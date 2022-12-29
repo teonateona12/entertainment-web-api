@@ -80,3 +80,8 @@ export const signupUser = async (req, res) => {
     res.status(500).send();
   }
 };
+
+export const getUser = async () => {
+  const allUser = await User.find();
+  res.status(200).json(allUser);
+};

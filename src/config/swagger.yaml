@@ -107,3 +107,21 @@ paths:
                   type: boolean
                 isTrending:
                   type: boolean
+  /users:
+    get:
+      tags:
+        - Users
+      responses:
+        "200":
+          description: Successfully fetched
+          content:
+            application/json:
+              schema:
+                type: array
+                avatar:
+                  type: string
+                  format: binary
+                email:
+                  type: string
+                password:
+                  type: string

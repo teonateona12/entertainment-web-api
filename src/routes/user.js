@@ -1,6 +1,10 @@
 import express from "express";
 import multer from "multer";
-import { loginUser, signupUser } from "../controllers/userController.js";
+import {
+  getUser,
+  loginUser,
+  signupUser,
+} from "../controllers/userController.js";
 import { filmFunction, getFilm } from "../controllers/filmController.js";
 
 const router = express.Router();
@@ -50,5 +54,6 @@ router.post(
 );
 
 router.get("/film", getFilm);
+router.get("/users", getUser);
 
 export default router;
