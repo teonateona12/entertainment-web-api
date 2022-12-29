@@ -29,11 +29,9 @@ export const loginUser = async (req, res) => {
       },
       process.env.JWT_SECRET
     );
-    res
-      .cookie("token", token, {
-        httpOnly: true,
-      })
-      .send();
+    return res
+      .status(200)
+      .json({ email: existingUser.email, avatar: existingUser.avatar, token });
   } catch (err) {
     res.status(500).send();
   }
@@ -81,7 +79,7 @@ export const signupUser = async (req, res) => {
   }
 };
 
-export const getUser = async () => {
+export const getUser = async (req, res) => {
   const allUser = await User.find();
   res.status(200).json(allUser);
 };
