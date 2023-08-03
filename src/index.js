@@ -10,7 +10,9 @@ dotenv.config();
 const connection = () => {
   try {
     const connectionUrl = process.env.MONGO_CONNECTION;
-    return mongoose.connect(connectionUrl);
+    return mongoose.connect(
+      "mongodb+srv://teonateona12:teonateona12@cluster0.nggunpn.mongodb.net/entertainment-web"
+    );
   } catch (error) {
     console.log(error);
     return error;
