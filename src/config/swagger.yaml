@@ -125,3 +125,26 @@ paths:
                   type: string
                 password:
                   type: string
+  /bookmark/{id}:
+    put:
+      tags:
+        - Film
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+      requestBody:
+        description: update film
+        required: true
+        content:
+          application/json:
+            schema:
+              type: "object"
+              properties:
+                isBookmarked:
+                  type: string
+      responses:
+        "200":
+          description: task status updated

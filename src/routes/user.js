@@ -5,7 +5,11 @@ import {
   loginUser,
   signupUser,
 } from "../controllers/userController.js";
-import { filmFunction, getFilm } from "../controllers/filmController.js";
+import {
+  filmFunction,
+  getFilm,
+  tooggleBooked,
+} from "../controllers/filmController.js";
 
 const router = express.Router();
 
@@ -55,5 +59,6 @@ router.post(
 
 router.get("/film", getFilm);
 router.get("/users", getUser);
+router.put("/bookmark/:id", tooggleBooked);
 
 export default router;
